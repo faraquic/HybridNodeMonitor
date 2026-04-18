@@ -1,0 +1,37 @@
+[package]
+name = "hnm-worker"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[package.metadata]
+description = "Hybrid Node Monitor Worker"
+
+[[bin]]
+name = "hnmw"
+path = "src/main.rs"
+
+[dependencies]
+sysinfo = "0.38"
+chrono = "0.4"
+serde = { version = "1", features = ["derive"] }
+figment = { version = "0.10", features = ["yaml", "env"] }
+notify-debouncer-mini = "0.4"
+log = "0.4.29"
+env_logger = "0.11"
+humantime = "2.3"
+# [ ] TODO: remove full features
+tokio = { version = "1.50", features = ["full"] }
+tokio-rustls = "0.26"
+rustls = { version = "0.23", features = ["aws-lc-rs"] }
+x509-parser = "0.18.1"
+rustls-platform-verifier = "0.6.2"
+reqwest = { version = "0.13", features = ["json"] }
+bollard = { version = "*", default-features = false, features = ["pipe"] }
+futures-util = "0.3.32"
+
+[lints]
+workspace = true

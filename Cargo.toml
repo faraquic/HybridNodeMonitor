@@ -1,0 +1,43 @@
+[workspace]
+resolver = "2"
+members = ["crates/*"]
+
+[workspace.package]
+version = "0.0.0"
+authors = ["Faraquic!"]
+edition = "2024"
+rust-version = "1.93.0"
+homepage = ""
+repository = ""
+license = "MIT"
+keywords = []
+categories = []
+
+[workspace.lints.rust]
+unsafe_code = "deny"
+missing_docs = "allow"
+
+[workspace.lints.clippy]
+all = { level = "deny", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+module_name_repetitions = "allow"
+missing_errors_doc = "allow"
+missing_panics_doc = "allow"
+
+[profile.dev]
+opt-level = 0
+debug = "full"
+strip = "none"
+split-debuginfo = "packed"
+panic = "abort"
+codegen-units = 4
+
+
+[profile.release]
+opt-level = 3
+debug = "none"
+strip = "symbols"
+split-debuginfo = "off"
+lto = "fat"
+panic = "abort"
+codegen-units = 1

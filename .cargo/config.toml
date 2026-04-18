@@ -1,0 +1,15 @@
+[target.x86_64-unknown-linux-gnu]
+linker = "clang"
+rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+
+[env]
+RUST_LOG = { value = "trace", relative = false }
+
+[alias]
+ba = "build --workspace --all-features"
+br = "build --workspace --all-features --release"
+c = "check --workspace --all-features"
+t = "test --workspace --all-features"
+cl = "clippy --workspace --all-features --all-targets"
+f = "fmt --all"
+rw = "run --bin hnmw"
